@@ -3,11 +3,11 @@ def decode_morse_code()
                '.--.', '--.-', '.-.', '...', '-', '..-', '...-', '.--', '-..-', '-.--', '--..'];
   morsevalues = %w[a b c d e f g h i j k l m n o p q r s t u v w x y z];
 
-p "Enter a word to convert to Morse code";
+  p "Enter a word to convert to Morse code";
 
-message = gets.chomp;
+  message = gets.chomp;
 
-code_array = message.split('  ')
+  code_array = message.split('  ')
   string = ''
   code_array.each do |word|
     word_array = word.split
