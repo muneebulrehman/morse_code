@@ -5,7 +5,7 @@ def decode_morse_code()
 
   p 'Enter a word to convert to Morse code'
 
-  message = gets.chomp;
+  message = gets.chomp
 
   code_array = message.split('  ')
   string = ''
