@@ -1,9 +1,9 @@
 def decode_morse_code()
   morsecode = ['.-', '-...', '-.-.', '-..', '.', '..-.', '--.', '....', '..', '.---', '-.-', '.-..', '--', '-.', '---',
-               '.--.', '--.-', '.-.', '...', '-', '..-', '...-', '.--', '-..-', '-.--', '--..'];
-  morsevalues = %w[a b c d e f g h i j k l m n o p q r s t u v w x y z];
+               '.--.', '--.-', '.-.', '...', '-', '..-', '...-', '.--', '-..-', '-.--', '--..']
+  morsevalues = %w[a b c d e f g h i j k l m n o p q r s t u v w x y z]
 
-  p "Enter a word to convert to Morse code";
+  p 'Enter a word to convert to Morse code'
 
   message = gets.chomp;
 
