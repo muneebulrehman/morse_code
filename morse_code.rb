@@ -25,8 +25,7 @@ MORSE_CODE_MAP = {
   '-..-' => 'X',
   '-.--' => 'Y',
   '--..' => 'Z'
-}
-
+}.freeze
 
 def decode_char(character)
   MORSE_CODE_MAP[character]
@@ -35,7 +34,7 @@ end
 def decode_word(word)
   string = ''
   word_array = word.split
-  word_array.each{ |el| string+= MORSE_CODE_MAP[el]  }
+  word_array.each { |el| string+= MORSE_CODE_MAP[el] }
   return string
 end
 
@@ -44,12 +43,10 @@ end
 def decode(sentence)
   message = ''
   word_array = sentence.split('  ')
-  p word_array
-  word_array.each{|word|
-    message+= decode_word(word)+' '
+  word_array.each { |word|
+    message += decode_word(word) + ' '
   }
-  return message
-
+  message
 end
 
-# p decode('.-   -... --- -..-   ..-. ..- .-.. .-..    --- ..-.    .-. ..- -... .. . ...')
+p decode('.-   -... --- -..-   ..-. ..- .-.. .-..    --- ..-.    .-. ..- -... .. . ...')
