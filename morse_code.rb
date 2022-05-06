@@ -1,20 +1,55 @@
-def decode_morse_code()
-  morsecode = ['.-', '-...', '-.-.', '-..', '.', '..-.', '--.', '....', '..', '.---', '-.-', '.-..', '--', '-.', '---',
-               '.--.', '--.-', '.-.', '...', '-', '..-', '...-', '.--', '-..-', '-.--', '--..']
-  morsevalues = %w[a b c d e f g h i j k l m n o p q r s t u v w x y z]
+MORSE_CODE_MAP = {
+  '.-' => 'A',
+  '-...' => 'B',
+  '-.-.' => 'C',
+  '-..' => 'D',
+  '.' => 'E',
+  '..-.' => 'F',
+  '--.' => 'G',
+  '....' => 'H',
+  '..' => 'I',
+  '.---' => 'J',
+  '-.-' => 'K',
+  '.-..' => 'L',
+  '--' => 'M',
+  '-.' => 'N',
+  '---' => 'O',
+  '.--.' => 'P',
+  '--.-' => 'Q',
+  '.-.' => 'R',
+  '...' => 'S',
+  '-' => 'T',
+  '..-' => 'U',
+  '...-' => 'V',
+  '.--' => 'W',
+  '-..-' => 'X',
+  '-.--' => 'Y',
+  '--..' => 'Z'
+}
 
-  p 'Enter a word to convert to Morse code'
 
-  message = gets.chomp
-
-  code_array = message.split('  ')
-  string = ''
-  code_array.each do |word|
-    word_array = word.split
-    word_array.each do |letter|
-      string += morsevalues[morsecode.index(letter)]
-    end
-    string += ' '
-  end
-  "The translated code is:\n ====> #{string}"
+def decode_char(character)
+  MORSE_CODE_MAP[character]
 end
+
+def decode_word(word)
+  string = ''
+  word_array = word.split
+  word_array.each{ |el| string+= MORSE_CODE_MAP[el]  }
+  return string
+end
+
+# decode_word('-- -.--')
+
+def decode(sentence)
+  message = ''
+  word_array = sentence.split('  ')
+  p word_array
+  word_array.each{|word|
+    message+= decode_word(word)+' '
+  }
+  return message
+
+end
+
+# p decode('.-   -... --- -..-   ..-. ..- .-.. .-..    --- ..-.    .-. ..- -... .. . ...')
