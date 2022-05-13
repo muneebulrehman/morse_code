@@ -35,7 +35,6 @@ def decode_word(word)
   string = ''
   word_array = word.split
   word_array.each { |el| string += MORSE_CODE_MAP[el] }
-  string
 end
 
 # decode_word('-- -.--')
@@ -46,7 +45,6 @@ def decode(sentence)
   word_array.each do |word|
     message += "#{decode_word(word)} "
   end
-  message
 end
 
 decode('.-   -... --- -..-   ..-. ..- .-.. .-..    --- ..-.    .-. ..- -... .. . ...')
